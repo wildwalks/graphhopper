@@ -141,9 +141,6 @@ public class FootFlagEncoderTest {
         way.setTag("foot", "official");
         assertTrue(footEncoder.getAccess(way).isWay());
         
-        way.setTag("aerialway", "chair_lift");
-        assertTrue(footEncoder.getAccess(way).isWay());
-
         way.clearTags();
         way.setTag("highway", "service");
         way.setTag("access", "no");
@@ -243,6 +240,15 @@ public class FootFlagEncoderTest {
     public void testPier() {
         ReaderWay way = new ReaderWay(1);
         way.setTag("man_made", "pier");
+        IntsRef flags = footEncoder.handleWayTags(encodingManager.createEdgeFlags(), way, footEncoder.getAccess(way));
+        assertFalse(flags.isEmpty());
+    }
+    
+    @Test
+    public void testAerialway() {
+        assertTrue(footEncoder.getAccess(way).isWay());
+        ReaderWay way = new ReaderWay(1);
+        way.setTag("aerialway", "chair_lift");
         IntsRef flags = footEncoder.handleWayTags(encodingManager.createEdgeFlags(), way, footEncoder.getAccess(way));
         assertFalse(flags.isEmpty());
     }
