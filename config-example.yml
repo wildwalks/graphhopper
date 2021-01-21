@@ -10,7 +10,7 @@ graphhopper:
 
   # More options: foot,hike,bike,bike2,mtb,racingbike,motorcycle,car4wd,wheelchair (comma separated)
   # bike2 takes elevation data into account (like up-hill is slower than down-hill) and requires enabling graph.elevation.provider below.
-  graph.flag_encoders: car
+  graph.flag_encoders: car, hike
 
   # Enable turn restrictions for car or motorcycle.
   # graph.flag_encoders: car|turn_costs=true
@@ -49,6 +49,10 @@ graphhopper:
     - name: car
       vehicle: car
       weighting: fastest
+      
+    - name: hike
+      vehicle: hike
+      weighting: fastest
 
   #  - name: car_with_turn_costs
   #    vehicle: car
@@ -65,6 +69,7 @@ graphhopper:
   # usage) and the routing will also be slower than with `turn_costs: false`.
   profiles_ch:
     - profile: car
+    - profile: hike
   #   - profile: car_with_turn_costs
 
   # Hybrid mode:
