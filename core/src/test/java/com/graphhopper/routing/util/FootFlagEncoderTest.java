@@ -246,7 +246,6 @@ public class FootFlagEncoderTest {
     
     @Test
     public void testAerialway() {
-        assertTrue(footEncoder.getAccess(way).isWay());
         ReaderWay way = new ReaderWay(1);
         way.setTag("aerialway", "chair_lift");
         IntsRef flags = footEncoder.handleWayTags(encodingManager.createEdgeFlags(), way, footEncoder.getAccess(way));
