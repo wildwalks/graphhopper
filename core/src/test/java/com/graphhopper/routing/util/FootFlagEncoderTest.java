@@ -140,6 +140,9 @@ public class FootFlagEncoderTest {
 
         way.setTag("foot", "official");
         assertTrue(footEncoder.getAccess(way).isWay());
+        
+        way.setTag("aerialway", "chair_lift");
+        assertTrue(footEncoder.getAccess(way).isWay());
 
         way.clearTags();
         way.setTag("highway", "service");
